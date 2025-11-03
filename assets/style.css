@@ -1,0 +1,87 @@
+/* ---- Reset ringan ---- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ---- Tampilan umum ---- */
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #3b82f6;
+  --border: #e5e7eb;
+  --radius: 14px;
+  --shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 10% -10%, #eef2ff 0%, transparent 40%), var(--bg);
+  display: grid;
+  place-items: center;
+  padding: 32px;
+}
+
+/* ---- Kartu tabel ---- */
+table {
+  width: min(620px, 95vw);
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;              /* agar radius berlaku ke isi */
+  box-shadow: var(--shadow);
+  backdrop-filter: saturate(120%) blur(2px);
+}
+
+/* Hilangkan atribut border bawaan HTML */
+table[border], table[border] * { border: none !important; }
+
+/* ---- Header ---- */
+thead {
+  background: linear-gradient(180deg, #8daccf 0%, #bac7d6 100%);
+}
+
+thead td {
+  font-weight: 700;
+  letter-spacing: .3px;
+  color: #0f172a;
+  text-align: center;
+}
+
+/* ---- Sel ---- */
+td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+/* Baris terakhir tanpa garis bawah */
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Zebra + hover */
+tbody tr:nth-child(odd) td { background: #fbfdff; }
+tbody tr:hover td {
+  background: #f0f7ff;
+  transition: background .2s ease;
+}
+
+/* Sel pertama sedikit menonjol */
+tbody td:first-child {
+  font-weight: 600;
+  color: #0f172a;
+  align-content: center;
+}
+
+/* ---- Responsif kecil ---- */
+@media (max-width: 420px) {
+  td { padding: 12px 14px; }
+  thead td { font-size: 0.95rem; }
+  tbody td { font-size: 0.95rem; }
+}
